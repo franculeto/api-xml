@@ -12,21 +12,17 @@ router.use(bodyParser.json());
 
 router.route('/getFile').get(function (req, response) {
 
-    var dataXml = process.env.CONFIGXML;
 
-    var parser = new xml2js.Parser();
-    fs.readFile( dataXml, function(err, data) {
+
+    fs.readFile( process.env.CONFIGXML, function(err, data) {
         if(err)
         {
             response.send('No hay archivo o puede que su configuracion sea erronea');
         }
         else {
-            parser.parseString(data, function (err, result) {
-                var file = result.route;
+                var text = data.toString();
 
-                response.download(file); // Set disposition and send it.
-
-            });
+                response.send(text); // Set disposition and send it.
         }
     });
 
