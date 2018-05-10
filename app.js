@@ -12,8 +12,8 @@ var routes = require('./index');
 var app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
+//app.use(bodyParser.urlencoded({extended: false}));
+//app.use(cookieParser());
 
 
 //este modulo se usa para resolver el cross origin.
