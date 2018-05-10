@@ -23,7 +23,7 @@ router.route('/getFile').get(function (req, response) {
 
         }
     });
-
+    //CONFIGXML='./genericQueryXMLall.xml' FILECUTOVERAVANCE='./cutover_fan_avance.csv' FILECUTOVERSTATUS='./cutover_fan_status.csv'
 
 });
 
@@ -48,6 +48,7 @@ router.route('/getFileCutoverAvance').get(function (req, response) {
 
 router.route('/getFileCutoverStatus').get(function (req, response) {
 
+    //response.chunkedEncoding = true
 
     fs.readFile( process.env.FILECUTOVERSTATUS, function(err, data) {
         if(err)
