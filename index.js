@@ -82,7 +82,7 @@ router.route('/getFileFaN').get(function (req, response) {
 
     //response.chunkedEncoding = true
 
-    fs.readFile( process.env.process.env.CONFIGXMLFAN, function(err, data) {
+    fs.readFile( process.env.CONFIGXMLFAN, function(err, data) {
         if(err)
         {
             response.send('No hay archivo o puede que su configuracion sea erronea');
