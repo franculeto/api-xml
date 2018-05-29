@@ -10,34 +10,30 @@ router.use(bodyParser.json());
 /* GET users listing. */
 
 // ------------ PETICIONES PARA VENTA FIJA ------------////
-router.route('/getFile').get(function (req, response) {
-
-    fs.readFile( process.env.CONFIGXML, function(err, data) {
-        if(err)
-        {
+router.route('/getFileSaleFixed').get(function (req, response) {
+    console.log("path "+process.env.CONFIGXM)
+    fs.readFile(process.env.CONFIGXML, function (err, data) {
+        if (err) {
             response.send('No hay archivo o puede que su configuracion sea erronea');
         }
         else {
-                var text = data.toString();
+            var text = data.toString();
 
-                response.send(text);
+            response.send(text);
 
         }
     });
-    //CONFIGXML='./genericQueryXMLall.xml' FILECUTOVERAVANCE='./cutover_fan_avance.csv' FILECUTOVERSTATUS='./cutover_fan_status.csv'
 
 });
 // ------------FIN  PETICIONES PARA VENTA FIJA ------------////
-
 
 
 // ------------ PETICIONES PARA CUTOVER ------------////
 
 router.route('/getFileCutoverAvance').get(function (req, response) {
 
-    fs.readFile( process.env.FILECUTOVERAVANCE, function(err, data) {
-        if(err)
-        {
+    fs.readFile(process.env.FILECUTOVERAVANCE, function (err, data) {
+        if (err) {
             response.send('No hay archivo o puede que su configuracion sea erronea');
         }
         else {
@@ -54,11 +50,9 @@ router.route('/getFileCutoverAvance').get(function (req, response) {
 
 router.route('/getFileCutoverStatus').get(function (req, response) {
 
-    //response.chunkedEncoding = true
 
-    fs.readFile( process.env.FILECUTOVERSTATUS, function(err, data) {
-        if(err)
-        {
+    fs.readFile(process.env.FILECUTOVERSTATUS, function (err, data) {
+        if (err) {
             response.send('No hay archivo o puede que su configuracion sea erronea');
         }
         else {
@@ -74,17 +68,13 @@ router.route('/getFileCutoverStatus').get(function (req, response) {
 // ------------FIN  PETICIONES PARA CUTOVER ------------////
 
 
-
-
 // ------------ PETICIONES PARA VENTA FAN ------------////
 
-router.route('/getFileFaN').get(function (req, response) {
+router.route('/getFileSaleFAN').get(function (req, response) {
 
-    //response.chunkedEncoding = true
 
-    fs.readFile( process.env.CONFIGXMLFAN, function(err, data) {
-        if(err)
-        {
+    fs.readFile(process.env.CONFIGXMLFAN, function (err, data) {
+        if (err) {
             response.send('No hay archivo o puede que su configuracion sea erronea');
         }
         else {
@@ -99,7 +89,6 @@ router.route('/getFileFaN').get(function (req, response) {
 });
 
 // ------------FIN  PETICIONES PARA VENTA FAN ------------////
-
 
 
 module.exports = router;
