@@ -90,5 +90,27 @@ router.route('/getFileSaleFAN').get(function (req, response) {
 
 // ------------FIN  PETICIONES PARA VENTA FAN ------------////
 
+// ------------ PETICIONES PARA POST VENTA FAN ------------////
+
+router.route('/getFilePostSaleFAN').get(function (req, response) {
+
+
+    fs.readFile(process.env.CONFIGXMLPOSTSALEFAN, function (err, data) {
+        if (err) {
+            response.send('No hay archivo o puede que su configuracion sea erronea');
+        }
+        else {
+            var text = data.toString();
+
+            response.send(text);
+
+        }
+    });
+
+
+});
+
+// ------------FIN  PETICIONES PARA VENTA FAN ------------////
+
 
 module.exports = router;
