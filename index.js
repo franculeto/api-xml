@@ -11,7 +11,6 @@ router.use(bodyParser.json());
 
 // ------------ PETICIONES PARA VENTA FIJA ------------////
 router.route('/getFileSaleFixed').get(function (req, response) {
-    console.log("path "+process.env.CONFIGXM)
     fs.readFile(process.env.CONFIGXML, function (err, data) {
         if (err) {
             response.send('No hay archivo o puede que su configuracion sea erronea');
